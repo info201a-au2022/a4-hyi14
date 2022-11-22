@@ -32,6 +32,7 @@ avg_pop_by_race_2018 <- by_race_2018_df %>%
          native_avg, white_avg, other_race_avg)
 rounded_avg_race_pop <- round(avg_pop_by_race_2018, 1)
 rounded_avg_race_pop
+
 # 2. Where is prison population count by race the highest?  
 highest_aapi <- incarceration_df %>%
   filter(aapi_jail_pop == max(aapi_jail_pop, na.rm = TRUE))%>% 
