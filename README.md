@@ -12,8 +12,8 @@ In this assignment, you'll create the necessary files to perform the analysis de
 
 #### Webserver set-up
 * Be sure to **change your repository settings** so that you can view the hosted website,  which will be available at:
-> link
+> https://info201a-au2022.github.io/a4-hyi14/
 
->
->where ORGANIZATION_NAME is your GitHub User ID and REPO_NAME is the name of the assignment (e.g., `a3-dghendry`)
+
+> where ORGANIZATION_NAME is your GitHub User ID and REPO_NAME is the name of the assignment (e.g., `a3-dghendry`)
 * Go to the "pages" page (via the "settings" tab) to configure your webserver to published your reports from the `/docs` directory
