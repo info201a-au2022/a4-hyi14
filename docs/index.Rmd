@@ -1,45 +1,59 @@
 ---
-title: "Your A4 Report Title (TODO: Revise title)"
-author: "Your Name"
-date: '2022-11-01'
+title: "Inequalities in the U.S. Prison System"
+author: "Hannah Yi"
+date: '2022-11-17'
 output: html_document
 ---
 
-```{r echo=FALSE, eval=TRUE, message=FALSE}
+```{r echo=FALSE, include=FALSE}
 source("../source/a4-helpers.R")
 source("../source/analysis.R")
 ```
 
 ## Abstract 
-[TODO: Include a short abstract (about 50 words)]
+Despite the increase interest in advocating for racial inequality, racism continues to exist in many places in the United States. One of these evident places is the prison system. This report will analyze and visualize incarceration data to expose patterns of inequality.
 
-# Test (TODO: Remove before submission!!)
-```{r echo=FALSE}
-q1_string <- test_query1()
-num <- 5
-```
-As you know, this is a markdown report. The [R Markdown Cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf) is **useful!**
+## Section 1: Introduction
+Prison systems and policing the United States have been known to be 
+racially unequal. Countless arrests, police related deaths have been racially motivated. This data set is a collection of incarceration data from 1970-2018 in the United States. By examining the correlation between prison population and race of inmates, patterns of injustice hope to be exposed. Social issues such as police and criminal justice, racism, and discrimination are involved. Direct stakeholders that are impacted by this research are the very inmates that data has been collected from. There are likely many lives that have been dismantled due to overcriminalization. Indirect stakeholders are inequality advocates and researchers who use this data to support their findings, and government officials that could use to gather prison statistics. The central value that needs to be engaged is social justice, to prevent the oppression of those who face disadvantage and discrimination. To reveal patterns of inequalities in the data, the following questions are examined. Section 5 examines "How does female and male prison population rate differ in different levels of urbanicity?" Section 6 examines "How is prison population of ICE distributed throughout states?".
 
-* Here's a test of a dynamic variable. Say **"`r q1_string`!!!** 
-* Here's another test. A vector
-of numbers: `r test_query2(num)`.
+## Section 2: Data Summary
+The variable I chose was prison population by race. Using this variable, 3 questions are examined. The first question is "What is the average value of prison population count by race in 2018?" The data reveals that the average prison population by race in 2018. The order is Asian American Pacific Islander, Black, Latinx, Native, White and Other Races Respectively: [`r rounded_avg_race_pop`]. The values show that the white_avg was the highest at 116.8. These summarized values help us compare gender distribution among populations, and discover possible racial inequalities. The second question is "Where is prison population count by race the highest?". Grouped by county name, prison population and year, the stats for AAPI were [`r highest_aapi`], Black [`r highest_black`], Latinx  [`r highest_latinx`], Native [`r highest_native`], White [`r highest_white`], and Other Races [`r highest_other_race`]. These values show the highest prison population in county for each race, which is essential for determining counties with frequent crimes and patterns based on race. The third question is "How much has prison population count by race changed over the last 50 years?" The difference for APPI is (`r aapi_50yr_difference`), Black is (`r black_50yr_difference`), Latinx is (`r latinx_50yr_difference`), Native is (`r native_50yr_difference`), White is (`r white_50yr_difference`), and Other Races is (`r other_race_50yr_difference`). These values are significant for viewing the increase and decrease of prison population by race and discovering possible factors that contributed to the growth or fall.
 
-Recall that _{r echo=TRUE}_ can be used to display the code, 
-which is very useful when developing and debugging a report. Here's an example: 
-
-```{r echo=TRUE}
-num <- 5
-sum <- sum(test_query2(num))
-print(sum)
+## Section 3: Growth of the U.S. Prison Population
+```{r year_pop_chart, echo=FALSE}
+plot(year_pop_chart)
 ```
 
-## Introduction 
-[TODO]
+*Figure 1.* Increase of Jail Population in U.S. (1970-2018). This chart shows the overall growth of the U.S. prison population from 1970 to 2018.
 
-## Data Summary 
-[TODO]
+Section 3 examines the question: "What is the growth of the U.S. prison population in 1970-2018?" The barchart reveals there is an overall increase in prison population. From 1970-1980 the population is uniform and after 1980 the rate increases. However, the past decade seems to be evening out again. Possible factors could be increased police brutality, prison law and policy changes.
 
-[TODO ... other sections ... See Canvas for details]
+## Section 4: Growth of Prison Population by State 
+```{r plot_jail_pop_by_states, echo=FALSE, message=FALSE}
+plot_jail_pop_by_states(c("WA","CA","OR"))
+```
 
-_All the very best with your work!_
+*Figure 2.* Growth of Jail Population by state (1970-2018). This chart shows the 
+overall growth of the U.S. prison population from 1970 to 2018 by certain states differentiated by color.
 
+Section 4 examines the question: "What is the growth of prison population by certain states in 1970-2018? States CA, OR, WA were chosen as they were geographically close. The line graph reveals a drastic increase in crime rates in California and minor increase in Oregon and Washington. Despite the close location of the states, it is suprising there is a major difference in prison population growth. Possible reasons could be differing areas of poverty or alcohol and drug abuse. The line graph provides insight on potential inequalities of prison population in U.S. states. 
+
+
+## Section 5: Compare gender population rate for different levels of urbanicity?
+```{r gender_urban_chart, echo=FALSE, warning=FALSE}
+plot(gender_urban_chart)
+```
+
+*Figure 3.* Comparison Between Gender Jail Population Rate for Different Levels of Urbanicity (1970-2018). This chart compares variation in male and female prison population by levels of urbanicity.
+
+Section 5 examines the question: "How does female and male prison population rate differ in different levels of urbanicity?" The scatterplot reveals that the female and male prison population did not greatly differ yet a majority of the prison population originated from rural areas. This is reasonable as high poverty rates often lead to high crime rates. The scatterplot provides insight on potential inequalities of prison population between certain states. 
+
+## Section 6: ICE Prison Population distribution by state 
+```{r ice_map_plot, echo=FALSE}
+plot(ice_map_plot)
+```
+
+*Figure 4.* Number of People Placed in Jail Due to ICE By State. This chart shows geographic variations of people placed in jail due to ICE.
+
+Section 6 examines the question: "How is prison population of ICE distributed throughout states?" ICE is a system were holds are placed on an individual detained at a local jail. The choropleth map reveals that California has the higest number of people in ICE. There is pattern were outskirt states tend to have higher ICE count than centrally located states. It is likely that the outskirt states have higher immigrant populations as ICE also identifies and apprehends immigrants who do not have permission to be in the United States. The map provides insight on potential inequalities of ICE prison population among states. 
